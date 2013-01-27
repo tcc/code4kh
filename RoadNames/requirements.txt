@@ -1,0 +1,11 @@
+Scrapy==0.16.4
+Twisted==12.3.0
+lxml==3.1beta1
+pyOpenSSL==0.13
+simplejson==3.0.7
+tabledown==0.1
+w3lib==1.2
+wsgiref==0.1.2
+xlrd==0.8.0
+xlwt==0.7.4
+zope.interface==4.0.3
