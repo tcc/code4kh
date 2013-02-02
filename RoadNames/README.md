@@ -1,6 +1,6 @@
 Preparations
 ==================================
-1. 準備 Python, virtualenv。
+1. 準備 [Python](http://python.org/), [virtualenv](http://pypi.python.org/pypi/virtualenv)。
 2. 準備資料。
 
     - 建立一個 out/ 目錄。
@@ -39,19 +39,19 @@ Executions
 ==================================
 1. 設置環境 (大約 2~5 分鐘)
 
-    $ cd RoadNames
-    $ virtualenv --no-site-packages rt
-    $ source rt/bin/activate
-    $ pip install -r requirements.txt
+    	$ cd RoadNames
+	    $ virtualenv --no-site-packages rt
+	    $ source rt/bin/activate
+	    $ pip install -r requirements.txt
 
 2. 從 HTML 產生 JSON
 
-    $ cd out
-    $ python ../dump_json.py *html
+	    $ cd out
+	    $ python ../dump_json.py *html
 
 3. 從 JSON 產生 xls
 
-    $ python ../dump_xls.py *json
-    (以第一個 json 檔案為 xls 主檔名)
+    	$ python ../dump_xls.py *json
+	    (以第一個 json 檔案為 xls 主檔名)
 
 ***

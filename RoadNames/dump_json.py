@@ -32,23 +32,18 @@ def html2json(filename):
 
     roads_lst=[]
 
-    roads = hxs.select('//table[contains(@id,"ctl00_ContentPlaceHolder1_gvIndex")]/tr')
-    # road_html=HtmlXPathSelector(text=roads[1].extract())
-
+    roads = hxs.select('//table[contains(@id,"ctl00_ContentPlaceHolder1_gvIndex")]/tr/td[contains(@valign,"top")]/..')
     for road in roads:
-        road_html=HtmlXPathSelector(text=road.extract())
-        road_data = road_html.select("//tr/td")
-
         try:
-            if len(road_data)>0 and road_data[0].extract().find('valign')>0:
                 road_tmp = []
-                for road_cell in road_data:
-                    span_html=HtmlXPathSelector(text=road_cell.extract())
-                    span_data = span_html.select("//td/span/text()")
 
-                    for span_cell in span_data:
-                        road_str=span_cell.extract()
-                        road_tmp.append(uniform_str(road_str))
+                span_html=HtmlXPathSelector(text=road.extract())
+                span_data = span_html.select("//td/span/text()")
+
+                for span_cell in span_data:
+                    road_str=span_cell.extract()
+                    road_tmp.append(uniform_str(road_str))
+
                 if len(road_tmp)==4:
                     #print road_tmp
                     road_map={'zh':road_tmp[0], 'en':road_tmp[1], 'type':road_tmp[2], 'unit':road_tmp[3]}
@@ -58,6 +53,7 @@ def html2json(filename):
         except:
             #print "Unexpected error:", sys.exc_info()[0]
             pass
+
 
     if len(roads_lst)>0:
         outf = open(outfn, 'w')
